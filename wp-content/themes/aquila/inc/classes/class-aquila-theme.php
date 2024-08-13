@@ -17,6 +17,7 @@ namespace  AQUILA_THEME\Inc;
         //load classes.
         Assets::get_instance();
         Menus::get_instance();
+        Meta_Boxes::get_instance();
         $this->set_hooks();
     }
 
@@ -66,6 +67,11 @@ namespace  AQUILA_THEME\Inc;
             'wp-block-styles'
         );
         add_theme_support('align-wide');
+
+        /**
+         * Register image sizes
+         */
+        add_image_size( 'featured-large', 350, 233, true );
 
         global $content_width;
         if( !isset($content_width) ) {
