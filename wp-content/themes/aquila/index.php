@@ -32,24 +32,26 @@ get_header();
                         <?php
                             $index = 0;
                             $no_of_columns = 3;
-
+                            $total_posts = wp_count_posts()->publish;
                             //start loop.
                             while( have_posts() ) : the_post();
-                                if( 0 === $index % $no_of_columns) {
+                                if($index <= 3) {
                                     ?>
                                         <div class="col-lg-4 col-md-6 col-sm-12">
                                     <?php
-                                }
-                                    get_template_part('template-parts/pages/content');
-                                ?>
-                                   </div>
-                                <?php
+                                            get_template_part('template-parts/pages/content');
+                                    ?>
+                                        </div>
+                                    <?php
                                     $index++;
-                                    if(0!==$index && 0== $index % $no_of_columns) { ?>
+                                    
+                                } else if($index == 3 || $index = $total_posts) {
+                                    $index =0;
+                                    ?>
                                     </div>
-                                        <?php
-
-                                    }
+                                    <?php
+                                }
+                                
                             endwhile;
                             // $index++;
                         ?>
