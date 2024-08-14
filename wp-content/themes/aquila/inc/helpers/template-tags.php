@@ -86,4 +86,28 @@ function aquila_excerpt_more($more = '') {
     }
     return $more;
 }
+
+// function aquila_pagination() {
+//     previous_post_link();
+//     next_post_link();
+// }
+
+function aquila_pagination() {
+    $allowed_tags = array(
+        'span' => array(
+                'class' => []
+        ),
+        'a' => array(
+            'class' => array(),
+            'href' => array()
+        )
+    );
+
+    $args = array(
+        'before_page_number' => "<span class='btn border bordr-secondary mr-2 mb-2'>",
+        'after_page_number'  => "</span>"
+    );
+
+    printf( "<nav class='aquila-pagination clearfix'>%s</nav>", wp_kses( paginate_links($args), $allowed_tags ));
+}
 ?>

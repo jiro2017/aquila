@@ -63,8 +63,13 @@ get_header();
                 ?>
                 <?php
             }
+
             // get_template_part('template-parts/pages/content-none');
         ?> 
+            <div class="container">
+                <?php aquila_pagination(); ?>
+            </div>
+            
     </main>
 </div>
 <?php
