@@ -19,7 +19,7 @@ class Sidebars {
     protected function set_hooks() {
         // actions and filters
         add_action('widgets_init', [ $this, 'register_sidebars']);
-        add_action('widgets_init', [ $this, 'register_clock_widget']);
+        // add_action('widgets_init', [ $this, 'register_clock_widget']);
     }
 
     public function register_sidebars() {
